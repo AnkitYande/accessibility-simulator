@@ -1,0 +1,7 @@
+<div class="hide_mouse">
+    <div class="container">
+        <button #button1 class="button1"> Hard </button>
+        <button #button2 class="button2"> Easy </button>
+    </div>
+    <img #pointer class="pointer" src="assets/cursor.svg" width="28" height="28" [ngStyle]="{'left.px':mouseX, 'top.px':mouseY}">
+</div>
