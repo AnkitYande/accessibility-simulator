@@ -1,6 +1,10 @@
 <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-  <p> Nav Bar <p>
+<nav style="background-color:lightgray; padding:10px; margin: 10px">
+  <ul>
+    <li><a routerLink="/dexterity-mouse"> Dexterity Mouse </a></li>
+    <li><a routerLink="/color-filter"> Color Blindness Filter </a></li>
+    <li><a routerLink="/screen-reader"> Screen Reader </a></li>
+  </ul>
 </nav>
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>
