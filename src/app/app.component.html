@@ -1,10 +1,12 @@
 <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav style="background-color:lightgray; padding:10px; margin: 10px">
-  <ul>
-    <li><a routerLink="/dexterity-mouse"> Dexterity Mouse </a></li>
-    <li><a routerLink="/color-filter"> Color Blindness Filter </a></li>
-    <li><a routerLink="/screen-reader"> Screen Reader </a></li>
-  </ul>
+<nav class="navbar" style="padding-left:40px; padding-right:40px;">
+    <p>Temp Nav</p>
+    <a routerLink="/intro"> Intro </a>
+    <a routerLink="/dexterity-mouse"> Dexterity Mouse </a>
+    <a routerLink="/color-filter"> Color Blindness Filter </a>
+    <a routerLink="/screen-reader"> Screen Reader </a>
 </nav>
 <!-- The routed views render in the <router-outlet>-->
-<router-outlet></router-outlet>
+<div [@routeAnimations]="getRouteAnimationData()">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>

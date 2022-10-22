@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~locomotive-scroll/dist/locomotive-scroll.css';
+
+* {
+    padding:0;
+    margin:0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overscroll-behavior: none;
+    box-sizing: border-box;
+}
+
+img {
+    vertical-align: inherit;
+}
