@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ColorFilterComponent } from './color-filter/color-filter.component';
+// import {HomeComponent} from './home/home.component';
+import { IntroComponent } from './slides/intro/intro.component';
+import { DexterityIntroComponent } from './slides/dexterity-intro/dexterity-intro.component';
 import { DexterityMouseComponent } from './dexterity-mouse/dexterity-mouse.component';
-import {HomeComponent} from './home/home.component';
-import { IntroComponent } from './intro/intro.component';
+import { ColorIntroComponent } from './slides/color-intro/color-intro.component';
+import { ColorFilterComponent } from './color-filter/color-filter.component';
 import { ScreenReaderComponent } from './screen-reader/screen-reader.component';
 
 const routes: Routes = [
@@ -18,6 +20,11 @@ const routes: Routes = [
     data: { animation: 'intro'}
   },
   {
+    path:'dexterity-intro',
+    component: DexterityIntroComponent,
+    data: { animation: 'dexterity-intro'}
+  },
+  {
     path:'dexterity-mouse',
     component: DexterityMouseComponent,
     data: { animation: 'dexterity-mouse'}
@@ -27,10 +34,16 @@ const routes: Routes = [
     path:'screen-reader',
     component: ScreenReaderComponent,
     data: { animation: 'screen-reader'}
-  },{
+  },
+  {
     path:'color-filter',
     component: ColorFilterComponent,
     data: { animation: 'color-filter'}
+  },
+  {
+    path:'color-intro',
+    component: ColorIntroComponent,
+    data: { animation: 'color-intro'}
   }
 ];
 

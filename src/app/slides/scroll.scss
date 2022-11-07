@@ -6,16 +6,12 @@
     height: 100%;
     color: #fff;
     text-align: center;
-    padding: 8em
+    padding: 10em
 }
 
 .mark {
     background: #ffff00;
     color: #1f1f1f;
-}
-
-.spacer {
-    height: 60vh
 }
 
 .stagger-in {
@@ -24,34 +20,20 @@
     transition: opacity 3s ease-in-out, transform 1s ease-in-out;
 }
 
-.scroll-class {
-    opacity: 1;
-    transform: translate(0%, 0)
-}
-
 .stagger-in h3 {
     font-size: 3.5vw;
     font-weight: bold;
     text-align: left;
-    line-height: 5rem;
+    line-height: 5.5vw;
 }
 
-.scroll-down::before {
-    animation: bounce 1.5s ease infinite;
-    margin-top: 2em;
-    margin-bottom: 30vh;
-    color: #fff;
-    content: '╲╱';
-    font-size: 2rem;
-    height: 4rem;
-    left: 50%;
-    letter-spacing: -1px;
-    line-height: 4rem;
-    margin-left: -3rem;
-    opacity: 0.8;
-    position: absolute;
-    text-align: center;
-    width: 6rem;
+.slide-spacer {
+    height: 60vh
+}
+
+.scroll-class {
+    opacity: 1;
+    transform: translate(0%, 0)
 }
 
 a {
@@ -77,12 +59,4 @@ a:after {
 a:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-}
-
-
-
-@keyframes bounce {
-    50% {
-        transform: translateY(-50%);
-    }
 }

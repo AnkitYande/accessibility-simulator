@@ -1,7 +1,21 @@
-<div class="hide_mouse">
-    <div class="container">
-        <button #button1 class="button1"> Hard </button>
-        <button #button2 class="button2"> Easy </button>
-    </div>
-    <img #pointer class="pointer" src="assets/cursor.svg" width="28" height="28" [ngStyle]="{'left.px':mouseX, 'top.px':mouseY}">
+<div class="hide_mouse" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)">
+    <app-countdown-timer [time]="timeLimit" [redirectURL]="redirection"></app-countdown-timer>
+    <form>
+        <label for="fname">First name:</label><br>
+        <input #fname type="text" id="fname" name="fname" [value]="value"><br><br>
+        <label for="lname">Last name:</label><br>
+        <input #lname type="text" id="lname" name="lname">
+        <br><br>
+        <input #htmlBtn type="radio" value="HTML" [checked]="checkedHTML">
+        <label #htmlLbl for="html">HTML</label><br>
+        <input #cssBtn type="radio" value="CSS" [checked]="checkedCSS">
+        <label #cssLbl for="css">CSS</label><br>
+        <input #jsBtn type="radio" value="JavaScript" [checked]="checkedJS">
+        <label #jsLbl for="javascript">JavaScript</label>
+        <br><br>
+        <input #submit type="submit" value="Submit">
+    </form>
+
+    <img #pointer class="pointer" src="assets/cursor.svg" width="28" height="28"
+        [ngStyle]="{'left.px':mouseX, 'top.px':mouseY}">
 </div>

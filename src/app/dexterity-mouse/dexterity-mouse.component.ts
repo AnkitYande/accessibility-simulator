@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-dexterity-mouse',
@@ -9,32 +9,69 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 
 export class DexterityMouseComponent implements OnInit {
 
-  mouseX: number = 0;
+  redirection: string = "/color-intro"
+  timeLimit: number = 1.02;
+
+  mouseX: number = 0
   mouseY: number = 0;
+  value = ""
 
   @ViewChild('pointer') pointer!: ElementRef;
-  @ViewChild('button1') b1!: ElementRef;
-  @ViewChild('button2') b2!: ElementRef;
-
-  @HostListener('document:mousemove', ['$event'])
-  onMouseMove(e: MouseEvent) {
-    this.mouseX = e.clientX + this.rand(-50, 50);
-    this.mouseY = e.clientY + this.rand(-50, 50);
-  }
-  
-  @HostListener('document:mousedown', ['$event'])
-  onMouseDown(e: MouseEvent) {
-    if (this.elementsOverlap(this.b1, this.pointer)) {
-      alert("That was hard to press!")
-    }
-    if (this.elementsOverlap(this.b2, this.pointer)) {
-      alert("That was easy to press!")
-    }
-  }
+  @ViewChild('fname') fName!: ElementRef;
+  @ViewChild('lname') lName!: ElementRef;
+  @ViewChild('submit') submitBtn!: ElementRef;
+  @ViewChild('htmlBtn') htmlBtn!: ElementRef;
+  @ViewChild('htmlLbl') htmlLbl!: ElementRef;
+  @ViewChild('cssBtn') cssBtn!: ElementRef;
+  @ViewChild('cssLbl') cssLbl!: ElementRef;
+  @ViewChild('jsBtn') jsBtn!: ElementRef;
+  @ViewChild('jsLbl') jsLbl!: ElementRef;
+  checkedHTML = false;
+  checkedCSS = false;
+  checkedJS = false;
 
   constructor() { }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
+  mouseMove(e: MouseEvent) {
+    this.mouseX = e.clientX + this.rand(-40, 40);
+    this.mouseY = e.clientY + this.rand(-40, 40);
+    e.stopPropagation();
+  }
+
+  mouseDown(e: MouseEvent) {
+    e.stopPropagation();
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    if (this.elementsOverlap(this.fName, this.pointer)) {
+      this.fName.nativeElement.focus();
+      this.fName.nativeElement.select();
+    }
+    if (this.elementsOverlap(this.lName, this.pointer)) {
+      this.lName.nativeElement.focus();
+      this.lName.nativeElement.select();
+    }
+    if (this.elementsOverlap(this.htmlBtn, this.pointer) || this.elementsOverlap(this.htmlLbl, this.pointer)) {
+      this.htmlBtn.nativeElement.focus();
+      this.checkedHTML = !this.checkedHTML;
+    }
+    if (this.elementsOverlap(this.cssBtn, this.pointer) || this.elementsOverlap(this.cssLbl, this.pointer)) {
+      this.cssBtn.nativeElement.focus();
+      this.checkedCSS = !this.checkedCSS;
+    }
+    if (this.elementsOverlap(this.jsBtn, this.pointer) || this.elementsOverlap(this.jsLbl, this.pointer)) {
+      this.jsBtn.nativeElement.focus();
+      this.checkedJS = !this.checkedJS;
+    }
+    if (this.elementsOverlap(this.submitBtn, this.pointer)) {
+      this.submitBtn.nativeElement.focus();
+      if (this.fName.nativeElement.value != "" && this.lName.nativeElement.valuev != "" &&
+        (this.checkedHTML || this.checkedCSS || this.checkedJS)) {
+        alert("Congrats you filled out the form in time!!")
+      } else {
+        alert("Missing some elements of the form")
+      }
+    }
 
   }
 
@@ -53,6 +90,5 @@ export class DexterityMouseComponent implements OnInit {
   rand(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
 
 }
