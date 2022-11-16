@@ -16,7 +16,7 @@ export class CountdownTimerComponent implements OnInit {
   private subscription: Subscription = new Subscription;
   public timeDifference!: number;
   timer = "";
-  timerColor = "black"
+  timerColor = "white"
 
   constructor(private router: Router) { }
 

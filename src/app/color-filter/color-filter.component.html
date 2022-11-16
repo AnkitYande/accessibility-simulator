@@ -1,4 +1,12 @@
-<div>
-    <img #image src = "assets/lena.png" ref={imageRef} (load)="onImageLoad()"/>
-    <canvas #canvas ></canvas>
+<div class="shell">
+    <h3> {{headderText}} </h3> 
+    <img #image [src] = "imgSrc" ref={imageRef} (load)="onImageLoad()"/>
+    <div class="centered">{{overlayText}}</div>
+    <canvas #canvas [style.filter]="filterOpacity"></canvas>
+    <div class="button-wrapper">
+        <button (click)="lowPress()">Low</button>
+        <button (click)="medPress()">Medium</button>
+        <button (click)="highPress()">High</button>
+        <button (click)="sevPress()">Severe</button>
+    </div>
 </div>

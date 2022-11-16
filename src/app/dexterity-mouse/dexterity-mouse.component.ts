@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dexterity-mouse',
@@ -30,7 +31,7 @@ export class DexterityMouseComponent implements OnInit {
   checkedCSS = false;
   checkedJS = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
   ngOnInit(): void { }
 
   mouseMove(e: MouseEvent) {
@@ -68,6 +69,7 @@ export class DexterityMouseComponent implements OnInit {
       if (this.fName.nativeElement.value != "" && this.lName.nativeElement.valuev != "" &&
         (this.checkedHTML || this.checkedCSS || this.checkedJS)) {
         alert("Congrats you filled out the form in time!!")
+        this.router.navigateByUrl(this.redirection)
       } else {
         alert("Missing some elements of the form")
       }
