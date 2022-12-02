@@ -1,0 +1,14 @@
+.split{
+    display: flex;
+    justify-content:space-evenly;
+}
+
+canvas, img {
+    max-width: 45%;
+    max-height: 1000px;
+    object-fit: contain;
+}
+
+input[type="radio"]{
+    margin: 0 10px 0 10px;
+  }

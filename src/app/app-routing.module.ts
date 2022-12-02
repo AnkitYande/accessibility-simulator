@@ -6,6 +6,7 @@ import { DexterityIntroComponent } from './slides/dexterity-intro/dexterity-intr
 import { DexterityMouseComponent } from './dexterity-mouse/dexterity-mouse.component';
 import { ColorIntroComponent } from './slides/color-intro/color-intro.component';
 import { ColorFilterComponent } from './color-filter/color-filter.component';
+import { ColorExploreComponent } from './color-explore/color-explore.component';
 import { ScreenReaderComponent } from './screen-reader/screen-reader.component';
 
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
     path:'screen-reader',
     component: ScreenReaderComponent,
     data: { animation: 'screen-reader'}
+  }, 
+  {
+    path:'color-intro',
+    component: ColorIntroComponent,
+    data: { animation: 'color-intro'}
   },
   {
     path:'color-filter',
@@ -41,9 +47,9 @@ const routes: Routes = [
     data: { animation: 'color-filter'}
   },
   {
-    path:'color-intro',
-    component: ColorIntroComponent,
-    data: { animation: 'color-intro'}
+    path:'color-explore',
+    component: ColorExploreComponent,
+    data: { animation: 'color-explore'}
   }
 ];
 

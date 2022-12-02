@@ -1,0 +1,49 @@
+<div style="margin: 2em">
+    <h2 style="font-weight: bold">Try it out!</h2>
+    <p>Upload a image and try out different color blindness filters</p>
+    <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+    <div [innerHtml]='msg2' *ngIf="msg2" style="color: red;"></div>
+    <input type="file" (change)="selectFile($event)"><br><br>
+    <form [formGroup]="imgForm" (ngSubmit)="onFormSubmit()">
+        <input type="radio" id="f0" value="protanomaly" formControlName="filterChoice" [checked]="true">
+        <label for="f0"> protanomaly </label>
+        <input type="radio" id="f1" value="protanopia" formControlName="filterChoice">
+        <label for="f1"> protanopia </label>
+        <input type="radio" id="f2" value="deuteranomaly" formControlName="filterChoice">
+        <label for="f2"> deuteranomaly </label>
+        <input type="radio" id="f3" value="deuteranopia" formControlName="filterChoice">
+        <label for="f3"> deuteranopia </label>
+        <input type="radio" id="f4" value="tritanomaly" formControlName="filterChoice">
+        <label for="f4"> tritanomaly </label>
+        <input type="radio" id="f5" value="tritanopia" formControlName="filterChoice">
+        <label for="f5"> tritanopia </label>
+        <input type="radio" id="f6" value="achromatomaly" formControlName="filterChoice">
+        <label for="f6"> achromatomaly </label>
+        <input type="radio" id="f7" value="achromatopsia" formControlName="filterChoice">
+        <label for="f7"> achromatopsia </label><br><br>
+        <input type="submit" value="Show me the results!">
+    </form>
+
+    <div class="split" style="margin-top: 2em">
+            <img #image [src]="url" (load)="imgLoad()">
+            <canvas #canvas></canvas>
+    </div> 
+
+    <br><br>
+    <input type="color" id="text" name="color" [(ngModel)]="textColor" (change)="updateContrastRatio()">
+    <label for="text"> Text color</label>
+    <br><br>
+    <input type="color" id="background" name="color" [(ngModel)]="backgroundColor" (change)="updateContrastRatio()">
+    <label for="background"> Background color</label>
+    <br><br>
+
+    <p>Contrast Ratio:</p>
+    <p>{{contrastRatio}}</p>
+
+    <div color-box [style.background-color]="backgroundColor">
+        <h3 [style.color]="textColor">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas sed enim ut sem. Purus faucibus ornare suspendisse sed nisi lacus sed. Mauris a diam maecenas sed. Fames ac turpis egestas integer eget aliquet nibh. Lacus viverra vitae congue eu consequat ac felis donec et. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Erat nam at lectus urna duis. Tempor orci eu lobortis elementum nibh tellus molestie. Eget felis eget nunc lobortis mattis aliquam faucibus. Porttitor massa id neque aliquam vestibulum morbi blandit cursus. Eget lorem dolor sed viverra ipsum.
+        </h3>
+    </div>
+
+</div>

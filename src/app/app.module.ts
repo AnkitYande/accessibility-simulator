@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { IntroComponent } from './slides/intro/intro.component';
 import { DexterityIntroComponent } from './slides/dexterity-intro/dexterity-intro.component';
 import { CountdownTimerComponent } from './util/countdown-timer/countdown-timer.component';
 import { ColorIntroComponent } from './slides/color-intro/color-intro.component';
+import { ColorExploreComponent } from './color-explore/color-explore.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,19 @@ import { ColorIntroComponent } from './slides/color-intro/color-intro.component'
     IntroComponent,
     DexterityIntroComponent,
     CountdownTimerComponent,
-    ColorIntroComponent
+    ColorIntroComponent,
+    ColorExploreComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  exports: [
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

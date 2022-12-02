@@ -103,19 +103,9 @@ export class ColorFilterComponent implements OnInit {
       this.imgSrc = this.slideShow[this.index][0] as string;
     } else {
       setTimeout(() =>
-        this.router.navigateByUrl("/screen-reader")
+        this.router.navigateByUrl("/color-explore")
       , 1500)
     }
   }
-
-  // cFn = (c) => (c <= 0.03928) ? c / 12.92 : Math.pow(((c + 0.055) / 1.055), 2.4);
-
-  // relLuminance = ([R, G, B]) => 0.2126 * cFn(R / 255) + 0.7152 * cFn(G / 255) + 0.0722 * cFn(B / 255)
-
-  // contrastRatio = (a, b) => {
-  //   let L1 = relLuminance(a)
-  //   let L2 = relLuminance(b)
-  //   return (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
-  // }
 
 }
