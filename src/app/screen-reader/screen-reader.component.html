@@ -2,19 +2,177 @@
 
     <button onclick="read()">Click</button>
 
+    <ul >
+        <li ><a href="#home">Home</a></li>
+        <li ><a href="#news">News</a></li>
+        <li ><a href="#contact">Contact</a></li>
+        <li ><a href="#about">About</a></li>
+    </ul>
+    
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <nav>
+        <ul >
+            <li ><a href="#home">Home</a></li>
+            <li ><a href="#news">News</a></li>
+            <li ><a href="#contact">Contact</a></li>
+            <li ><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <p > this is a paragraph </p>
+    <p > this is a paragraph 2</p>
+    <p > this is a paragraph 3</p>
+    <p > this is a paragraph 4</p>
+
+    
+    <img src="assets/lena.png">
+
+    <img src="assets/lena.png" alt="Image of lena">
+
+    <form>
+        <p>First name:<p>
+        <input  #fname type="text" id="fname" name="fname">
+        <br><br>
+        <label for="lname">Last name:</label><br>
+        <input  #lname type="text" id="lname" name="lname">
+        <br><br>
+        <label for="btns">Favorite Language:</label><br>
+        <input  #htmlBtn type="radio" value="HTML">
+        <label #htmlLbl for="html">HTML</label><br>
+        <input  #cssBtn type="radio" value="CSS">
+        <label #cssLbl for="css">CSS</label><br>
+        <input  #jsBtn type="radio" value="JavaScripts">
+        <label #jsLbl for="javascript">JavaScript</label>
+        <br><br>
+        <input  #submit type="submit" value="Submit">
+    </form>
+    <fieldset>
+        <legend>Color</legend>
+      
+        <input type="radio" name="color" value="red" id="colour_red">
+        <label for="colour_red">Red</label>
+      
+        <input type="radio" name="color" value="green" id="colour_green">
+        <label for="colour_green">Green</label>
+      
+        <input type="radio" name="color" value="blue" id="colour_blue">
+        <label for="colour_blue">Blue</label>
+      
+      </fieldset>
+
+    <table #table >
+        <tr >
+            <td ></td>
+            <th >NotBook</th>
+            <th >NotBook Pro</th>
+            <th >Notbook Air</th>
+        </tr>
+        <tr >
+            <th >Price</th>
+            <td >$999</td>
+            <td >$1299</td>
+            <td >$749</td>
+        </tr>
+        <tr >
+            <th >RAM</th>
+            <td >512GB</td>
+            <td >512GB</td>
+            <td >256GB</td>
+        </tr>
+        <tr >
+            <th >Storage</th>
+            <td >2TB</td>
+            <td >2TB</td>
+            <td >2TB</td>
+        </tr>
+        <tr >
+            <td >Battery Life</td>
+            <td >16 hrs</td>
+            <td >20 hrs</td>
+            <td >16 hrs</td>
+        </tr>
+    </table>
+    <button onclick="read()">Click</button>
+
+</div>
+
+
+
+<!-- <div class="ScreenReaderWrapper">
+
+    <button onclick="read()">Click</button>
+
     <ul tabindex="-1">
         <li tabindex="-1"><a href="#home">Home</a></li>
         <li tabindex="-1"><a href="#news">News</a></li>
         <li tabindex="-1"><a href="#contact">Contact</a></li>
         <li tabindex="-1"><a href="#about">About</a></li>
     </ul>
+    
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <nav>
+        <ul tabindex="-1">
+            <li tabindex="-1"><a href="#home">Home</a></li>
+            <li tabindex="-1"><a href="#news">News</a></li>
+            <li tabindex="-1"><a href="#contact">Contact</a></li>
+            <li tabindex="-1"><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </nav>
 
     <p tabindex="-1"> this is a paragraph </p>
     <p tabindex="-1"> this is a paragraph 2</p>
     <p tabindex="-1"> this is a paragraph 3</p>
     <p tabindex="-1"> this is a paragraph 4</p>
 
-    <button onclick="read()">Click</button>
+    
+    <img src="assets/lena.png">
+
+    <img src="assets/lena.png" alt="Image of lena">
+
+    <form>
+        <p>First name:<p>
+        <input tabindex = -1 #fname type="text" id="fname" name="fname">
+        <br><br>
+        <label for="lname">Last name:</label><br>
+        <input tabindex = -1 #lname type="text" id="lname" name="lname">
+        <br><br>
+        <label for="btns">Favorite Language:</label><br>
+        <input tabindex = -1 #htmlBtn type="radio" value="HTML">
+        <label #htmlLbl for="html">HTML</label><br>
+        <input tabindex = -1 #cssBtn type="radio" value="CSS">
+        <label #cssLbl for="css">CSS</label><br>
+        <input tabindex = -1 #jsBtn type="radio" value="JavaScripts">
+        <label #jsLbl for="javascript">JavaScript</label>
+        <br><br>
+        <input tabindex = -1 #submit type="submit" value="Submit">
+    </form>
+    <fieldset>
+        <legend>Color</legend>
+      
+        <input type="radio" name="color" value="red" id="colour_red">
+        <label for="colour_red">Red</label>
+      
+        <input type="radio" name="color" value="green" id="colour_green">
+        <label for="colour_green">Green</label>
+      
+        <input type="radio" name="color" value="blue" id="colour_blue">
+        <label for="colour_blue">Blue</label>
+      
+      </fieldset>
 
     <table #table tabindex="-1">
         <tr tabindex="-1">
@@ -52,56 +210,5 @@
 
 </div>
 
-<!-- <div class="ScreenReaderWrapper">
 
-    <button onclick="read()">Click</button>
-
-    <ul >
-        <li ><a href="#home">Home</a></li>
-        <li ><a href="#news">News</a></li>
-        <li ><a href="#contact">Contact</a></li>
-        <li ><a href="#about">About</a></li>
-    </ul>
-
-    <p > this is a paragraph </p>
-    <p > this is a paragraph 2</p>
-    <p > this is a paragraph 3</p>
-    <p > this is a paragraph 4</p>
-
-    <button onclick="read()">Click</button>
-
-    <table #table >
-        <tr >
-            <td ></td>
-            <th >NotBook</th>
-            <th >NotBook Pro</th>
-            <th >Notbook Air</th>
-        </tr>
-        <tr >
-            <th >Price</th>
-            <td >$999</td>
-            <td >$1299</td>
-            <td >$749</td>
-        </tr>
-        <tr >
-            <th >RAM</th>
-            <td >512GB</td>
-            <td >512GB</td>
-            <td >256GB</td>
-        </tr>
-        <tr >
-            <th >Storage</th>
-            <td >2TB</td>
-            <td >2TB</td>
-            <td >2TB</td>
-        </tr>
-        <tr >
-            <th >Battery Life</th>
-            <td >16 hrs</td>
-            <td >20 hrs</td>
-            <td >16 hrs</td>
-        </tr>
-    </table>
-    <button onclick="read()">Click</button>
-
-    </div> -->
+ -->
