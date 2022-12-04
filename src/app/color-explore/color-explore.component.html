@@ -1,49 +1,144 @@
 <div style="margin: 2em">
+
     <h2 style="font-weight: bold">Try it out!</h2>
     <p>Upload a image and try out different color blindness filters</p>
-    <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
-    <div [innerHtml]='msg2' *ngIf="msg2" style="color: red;"></div>
-    <input type="file" (change)="selectFile($event)"><br><br>
-    <form [formGroup]="imgForm" (ngSubmit)="onFormSubmit()">
-        <input type="radio" id="f0" value="protanomaly" formControlName="filterChoice" [checked]="true">
-        <label for="f0"> protanomaly </label>
-        <input type="radio" id="f1" value="protanopia" formControlName="filterChoice">
-        <label for="f1"> protanopia </label>
-        <input type="radio" id="f2" value="deuteranomaly" formControlName="filterChoice">
-        <label for="f2"> deuteranomaly </label>
-        <input type="radio" id="f3" value="deuteranopia" formControlName="filterChoice">
-        <label for="f3"> deuteranopia </label>
-        <input type="radio" id="f4" value="tritanomaly" formControlName="filterChoice">
-        <label for="f4"> tritanomaly </label>
-        <input type="radio" id="f5" value="tritanopia" formControlName="filterChoice">
-        <label for="f5"> tritanopia </label>
-        <input type="radio" id="f6" value="achromatomaly" formControlName="filterChoice">
-        <label for="f6"> achromatomaly </label>
-        <input type="radio" id="f7" value="achromatopsia" formControlName="filterChoice">
-        <label for="f7"> achromatopsia </label><br><br>
-        <input type="submit" value="Show me the results!">
-    </form>
 
-    <div class="split" style="margin-top: 2em">
-            <img #image [src]="url" (load)="imgLoad()">
-            <canvas #canvas></canvas>
-    </div> 
+    <div class="img-filter-shell">
+        <div class="filter-container">
+            <h3>Select a filter</h3>
+            <form class="form-container" [formGroup]="imgForm" (change)="onFormSubmit()">
+                <div>
+                    <input type="radio" id="f0" value="protanomaly" formControlName="filterChoice" [checked]="true">
+                    <label for="f0">
+                        <img src="assets/color-wheel/protoanomaly.png">
+                        protanomaly
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="f1" value="protanopia" formControlName="filterChoice">
+                    <label for="f1">
+                        <img src="assets/color-wheel/protanopia.png">
+                        protanopia
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="f2" value="deuteranomaly" formControlName="filterChoice">
+                    <label for="f2">
+                        <img src="assets/color-wheel/deuteranomaly.png">
+                        deuteranomaly
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="f3" value="deuteranopia" formControlName="filterChoice">
+                    <label for="f3">
+                        <img src="assets/color-wheel/deuteranopia.png">
+                        deuteranopia
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="f4" value="tritanomaly" formControlName="filterChoice">
+                    <label for="f4">
+                        <img src="assets/color-wheel/tritanomaly.png">
+                        tritanomaly
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="f5" value="tritanopia" formControlName="filterChoice">
+                    <label for="f5">
+                        <img src="assets/color-wheel/tritanopia.png">
+                        tritanopia
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="f6" value="achromatomaly" formControlName="filterChoice">
+                    <label for="f6">
+                        <img src="assets/color-wheel/achromatomaly.png">
+                        achromatomaly
+                    </label>
+                </div>
+                <div>
+                    <input type="radio" id="f7" value="achromatopsia" formControlName="filterChoice">
+                    <label for="f7">
+                        <img src="assets/color-wheel/achromatopsia.png">
+                        achromatopsia
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="img-container">
+            <div>
+                <img #image [src]="url" (load)="imgLoad()" style="display: none">
+                <canvas #canvas></canvas>
+            </div>
+            <div class="img-options">
+                <div style="display: flex; flex-direction: column; text-align: left">
+                    <p *ngIf="msg" style="color: red;">{{msg}}</p>
+                    <input type="file" (change)="selectFile($event)">
+                </div>
+                <input type="checkbox" id="show" value="show" (change)="toggleFilter()">
+                <label for="show" style="display: flex; flex-direction: row; align-items:center">
+                    <p style="margin: 0; margin-right: 1em">Show Filter:</p>
+                    <fa-icon class="eyeIcon" [icon]="showFilter ? faEye : faEyeSlash"></fa-icon>
+                </label>
+            </div>
+        </div>
+    </div>
 
-    <br><br>
-    <input type="color" id="text" name="color" [(ngModel)]="textColor" (change)="updateContrastRatio()">
-    <label for="text"> Text color</label>
-    <br><br>
-    <input type="color" id="background" name="color" [(ngModel)]="backgroundColor" (change)="updateContrastRatio()">
-    <label for="background"> Background color</label>
-    <br><br>
+    <br><br><br><br>
+    <h2 style="font-weight: bold">Try it out!</h2>
+    <p>check contrast ratios</p>
+    <br>
 
-    <p>Contrast Ratio:</p>
-    <p>{{contrastRatio}}</p>
+    <div class="contrast-shell">
+        <div class="a1">
+            <div>
+                <input type="color" id="text" name="color" [(ngModel)]="textColor" (change)="updateContrastRatio()">
+                <label for="text"> Text color</label>
+            </div>
+            <div>
+                <input type="color" id="background" name="color" [(ngModel)]="backgroundColor"
+                    (change)="updateContrastRatio()">
+                <label for="background"> Background color</label>
+            </div>
+        </div>
 
-    <div color-box [style.background-color]="backgroundColor">
-        <h3 [style.color]="textColor">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas sed enim ut sem. Purus faucibus ornare suspendisse sed nisi lacus sed. Mauris a diam maecenas sed. Fames ac turpis egestas integer eget aliquet nibh. Lacus viverra vitae congue eu consequat ac felis donec et. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Erat nam at lectus urna duis. Tempor orci eu lobortis elementum nibh tellus molestie. Eget felis eget nunc lobortis mattis aliquam faucibus. Porttitor massa id neque aliquam vestibulum morbi blandit cursus. Eget lorem dolor sed viverra ipsum.
-        </h3>
+        <div class="a2">
+            <p>Contrast Ratio:</p>
+            <h1>{{contrastRatioString}}</h1>
+        </div>
+
+        <div class="a3">
+            <div color-box [style.background-color]="backgroundColor">
+                <h2 [style.color]="textColor">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna.
+                </h2>
+                <p [style.color]="textColor">
+                    Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque. Adipiscing vitae proin sagittis nisl. Quis risus sed vulputate odio. Sit amet luctus venenatis lectus magna fringilla urna. Eget mauris pharetra et ultrices. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Faucibus in ornare quam viverra orci sagittis eu. Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Nibh venenatis cras sed felis eget velit. Placerat vestibulum lectus mauris ultrices. Lectus sit amet est placerat.
+                    Sed risus ultricies tristique nulla aliquet. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Sit amet mauris commodo quis imperdiet. Nibh venenatis cras sed felis. Quisque id diam vel quam elementum. Vivamus arcu felis bibendum ut tristique. Venenatis a condimentum vitae sapien. 
+                </p>
+            </div>
+        </div>
+
+        <div class="a4">
+            <div>
+                <p>AA large</p>
+                <fa-icon class="eyeIcon" [icon]="contrastRatio > 3 ? faCheck : faX"></fa-icon>
+            </div>
+            <div>
+                <p>AAA large</p>
+                <fa-icon class="eyeIcon" [icon]="contrastRatio > 4.5 ? faCheck : faX"></fa-icon>
+            </div>
+            <div>
+                <p>AA normal</p>
+                <fa-icon class="eyeIcon" [icon]="contrastRatio > 4.5 ? faCheck : faX"></fa-icon>
+            </div>
+            <div>
+                <p>AAA normal</p>
+                <fa-icon class="eyeIcon" [icon]="contrastRatio > 7 ? faCheck : faX"></fa-icon>
+            </div>
+        </div>
+
     </div>
 
 </div>

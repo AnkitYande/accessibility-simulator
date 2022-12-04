@@ -15,6 +15,8 @@ import { CountdownTimerComponent } from './util/countdown-timer/countdown-timer.
 import { ColorIntroComponent } from './slides/color-intro/color-intro.component';
 import { ColorExploreComponent } from './color-explore/color-explore.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { ColorExploreComponent } from './color-explore/color-explore.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   exports: [
     FormsModule,
