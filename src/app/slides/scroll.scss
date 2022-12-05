@@ -60,3 +60,27 @@ a:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
+
+.scroll-down::before {
+    animation: bounce 1.5s ease infinite;
+    margin-top: 2em;
+    margin-bottom: 30vh;
+    position: absolute;
+    color: #fff;
+    content: '╲╱';
+    font-size: 2rem;
+    height: 4rem;
+    left: 50%;
+    letter-spacing: -1px;
+    line-height: 4rem;
+    margin-left: -3rem;
+    opacity: 0.8;
+    text-align: center;
+    width: 6rem;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-50%);
+    }
+}

@@ -34,9 +34,9 @@ export class ScreenReaderComponent implements OnInit {
         activeElement = this.enterIfNeeded(activeElement, true);
       }
     }
-    
     if (activeElement != null) {
-      (activeElement as HTMLElement).focus()
+      console.log(activeElement);
+      (activeElement as HTMLElement).focus();
       this.read(activeElement.textContent!, false);
     }
 
@@ -54,7 +54,17 @@ export class ScreenReaderComponent implements OnInit {
           return activeElement.children[activeElement.children.length - 1];
         }
       }
+      if (activeElement.tagName == "FORM") {
+        this.read(`Form to buy a NotBook`);
+        if (!enterFromEnd) {
+          return activeElement.children[0];
+        } else {
+          return activeElement.children[activeElement.children.length - 1];
+        }
+      }
       else if (activeElement.tagName == "TABLE") {
+        this.tableIndex = [0, 0]
+        this.read(`table with ${activeElement.children.length} rows and ${activeElement.children[0].children.length} columns`);
         if (!enterFromEnd) {
           return activeElement.children[0].children[0];
         } else {
@@ -80,7 +90,7 @@ export class ScreenReaderComponent implements OnInit {
     if ((goingForward && currElement.nextElementSibling == null) || (!goingForward && currElement.previousElementSibling == null)) {
       if (currElement.tagName == "LI") {
         this.read(`Out of list`);
-        return currElement.parentElement as Element;
+        return currElement.parentElement
       }
       else if (currElement.tagName == "TD" || currElement.tagName == "TH") {
         let el = currElement.parentElement as Element;

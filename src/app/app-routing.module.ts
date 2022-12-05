@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import {HomeComponent} from './home/home.component';
 import { IntroComponent } from './slides/intro/intro.component';
 import { DexterityIntroComponent } from './slides/dexterity-intro/dexterity-intro.component';
 import { DexterityMouseComponent } from './dexterity-mouse/dexterity-mouse.component';
@@ -8,6 +7,7 @@ import { ColorIntroComponent } from './slides/color-intro/color-intro.component'
 import { ColorFilterComponent } from './color-filter/color-filter.component';
 import { ColorExploreComponent } from './color-explore/color-explore.component';
 import { ScreenReaderComponent } from './screen-reader/screen-reader.component';
+import { ReaderIntroComponent } from './slides/reader-intro/reader-intro.component';
 
 const routes: Routes = [
   {
@@ -32,11 +32,6 @@ const routes: Routes = [
 
   },
   {
-    path:'screen-reader',
-    component: ScreenReaderComponent,
-    data: { animation: 'screen-reader'}
-  }, 
-  {
     path:'color-intro',
     component: ColorIntroComponent,
     data: { animation: 'color-intro'}
@@ -50,7 +45,17 @@ const routes: Routes = [
     path:'color-explore',
     component: ColorExploreComponent,
     data: { animation: 'color-explore'}
-  }
+  },
+  {
+    path:'reader-intro',
+    component: ReaderIntroComponent,
+    data: { animation: 'reader-intro'}
+  }, 
+  {
+    path:'screen-reader',
+    component: ScreenReaderComponent,
+    data: { animation: 'screen-reader'}
+  }, 
 ];
 
 @NgModule({

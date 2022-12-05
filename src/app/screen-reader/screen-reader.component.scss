@@ -1,14 +1,19 @@
 table {
-    font-family: arial, sans-serif;
-    width: 80%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
+  font-family: arial, sans-serif;
+  width: 80%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
 tr:nth-child(even) {
-    background-color: #444;
-  }
+  background-color: #444;
+}
+
+img{
+  width: 100px;
+}
