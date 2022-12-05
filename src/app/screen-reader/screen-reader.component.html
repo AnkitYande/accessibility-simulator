@@ -107,25 +107,26 @@
 
 <!-- Good Site -->
 <div class="ScreenReaderWrapper">
-    <a tabindex="-1" class="skip-main" href="#main">Skip to main content</a>
+    <br tabindex="-1" #start>
+    <a tabindex="-1" fragment="main" href="javascript:;" (click)="skipToMain()">Skip to main content</a>
     <!-- <nav> -->
         <ul tabindex="-1">
-            <li tabindex="-1"><a href="#">Home</a></li>
-            <li tabindex="-1"><a href="#">NotBook</a></li>
-            <li tabindex="-1"><a href="#">NotPad</a></li>
-            <li tabindex="-1"><a href="#">NotPod</a></li>
-            <li tabindex="-1"><a href="#">NotPhone</a></li>
-            <li tabindex="-1"><a href="#">NotWatch</a></li>
-            <li tabindex="-1"><a href="#">Contact</a></li>
-            <li tabindex="-1"><a href="#">Support</a></li>
-            <li tabindex="-1"><a href="#">News</a></li>
-            <li tabindex="-1"><a href="#">About</a></li>
+            <li tabindex="-1"><a href="javascript:;">Home</a></li>
+            <li tabindex="-1"><a href="javascript:;">NotBook</a></li>
+            <li tabindex="-1"><a href="javascript:;">NotPad</a></li>
+            <li tabindex="-1"><a href="javascript:;">NotPod</a></li>
+            <li tabindex="-1"><a href="javascript:;">NotPhone</a></li>
+            <li tabindex="-1"><a href="javascript:;">NotWatch</a></li>
+            <li tabindex="-1"><a href="javascript:;">Contact</a></li>
+            <li tabindex="-1"><a href="javascript:;">Support</a></li>
+            <li tabindex="-1"><a href="javascript:;">News</a></li>
+            <li tabindex="-1"><a href="javascript:;">About</a></li>
 
         </ul>
     <!-- </nav> -->
 
     <!-- <div id=main> -->
-        <h1 tabindex="-1">Notbook</h1>
+        <h1 tabindex="-1" #main>Notbook</h1>
         <h2 tabindex="-1">The most advanced laptop. Ever.</h2>
         <h2 tabindex="-1">Which laptop is right for you?</h2>
         <table #table tabindex="-1">
