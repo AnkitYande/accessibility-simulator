@@ -13,22 +13,24 @@ import { DexterityIntroComponent } from './slides/dexterity-intro/dexterity-intr
 import { CountdownTimerComponent } from './util/countdown-timer/countdown-timer.component';
 import { ColorIntroComponent } from './slides/color-intro/color-intro.component';
 import { ColorExploreComponent } from './color-explore/color-explore.component';
+import { ReaderIntroComponent } from './slides/reader-intro/reader-intro.component';
+import { TakeAwaysComponent } from './take-aways/take-aways.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ReaderIntroComponent } from './slides/reader-intro/reader-intro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DexterityMouseComponent,
-    ScreenReaderComponent,
-    ColorFilterComponent,
     IntroComponent,
     DexterityIntroComponent,
-    CountdownTimerComponent,
+    DexterityMouseComponent,
     ColorIntroComponent,
+    ColorFilterComponent,
     ColorExploreComponent,
     ReaderIntroComponent,
+    ScreenReaderComponent,
+    TakeAwaysComponent,
+    CountdownTimerComponent,
   ],
   imports: [
     BrowserModule,

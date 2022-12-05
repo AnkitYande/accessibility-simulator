@@ -8,6 +8,7 @@ import { ColorFilterComponent } from './color-filter/color-filter.component';
 import { ColorExploreComponent } from './color-explore/color-explore.component';
 import { ScreenReaderComponent } from './screen-reader/screen-reader.component';
 import { ReaderIntroComponent } from './slides/reader-intro/reader-intro.component';
+import { TakeAwaysComponent } from './take-aways/take-aways.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,11 @@ const routes: Routes = [
     path:'screen-reader',
     component: ScreenReaderComponent,
     data: { animation: 'screen-reader'}
+  }, 
+  {
+    path:'take-away',
+    component: TakeAwaysComponent,
+    data: { animation: 'take-away'}
   }, 
 ];
 
