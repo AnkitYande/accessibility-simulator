@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
+
 import {
   fader,
   slideInAnimation
@@ -15,9 +16,17 @@ import {
 })
 export class AppComponent {
   title = 'accessibility-simulator';
-  constructor(private contexts: ChildrenOutletContexts) {}
+  check: boolean = false;
+
+  @ViewChild('navToggle') navToggle!: ElementRef;
+
+  constructor(private contexts: ChildrenOutletContexts) { }
 
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation']
+  }
+
+  toggleNav() {
+    this.navToggle.nativeElement.checked = false;
   }
 }
