@@ -1,94 +1,169 @@
-<!-- Bad Site -->
-
-
-<!-- Good Site -->
 <div class="ScreenReaderWrapper">
+    <br tabindex="0" id="start">
     <br tabindex="-1" #start>
-    <a tabindex="-1" fragment="main" href="javascript:;" (click)="skipToMain()">Skip to main content</a>
-    <!-- <nav> -->
-        <ul tabindex="-1">
-            <li tabindex="-1"><a href="javascript:;">Home</a></li>
-            <li tabindex="-1"><a href="javascript:;">NotBook</a></li>
-            <li tabindex="-1"><a href="javascript:;">NotPad</a></li>
-            <li tabindex="-1"><a href="javascript:;">NotPod</a></li>
-            <li tabindex="-1"><a href="javascript:;">NotPhone</a></li>
-            <li tabindex="-1"><a href="javascript:;">NotWatch</a></li>
-            <li tabindex="-1"><a href="javascript:;">Contact</a></li>
-            <li tabindex="-1"><a href="javascript:;">Support</a></li>
-            <li tabindex="-1"><a href="javascript:;">News</a></li>
-            <li tabindex="-1"><a href="javascript:;">About</a></li>
+    <a fragment="main" href="javascript:;" (click)="skipToMain()">Skip to main content link</a>
 
-        </ul>
-    <!-- </nav> -->
+    <ul tabindex="-1">
+        <li tabindex="-1"><a href="javascript:;">Home</a></li>
+        <li tabindex="-1"><a href="javascript:;">NotBook</a></li>
+        <li tabindex="-1"><a href="javascript:;">NotPad</a></li>
+        <li tabindex="-1"><a href="javascript:;">NotPod</a></li>
+        <li tabindex="-1"><a href="javascript:;">NotPhone</a></li>
+        <li tabindex="-1"><a href="javascript:;">NotWatch</a></li>
+        <li tabindex="-1"><a href="javascript:;">Contact</a></li>
+        <li tabindex="-1"><a href="javascript:;">Support</a></li>
+        <li tabindex="-1"><a href="javascript:;">News</a></li>
+        <li tabindex="-1"><a href="javascript:;">About</a></li>
 
-    <!-- <div id=main> -->
-        <h1 tabindex="-1" #main>Notbook</h1>
-        <h2 tabindex="-1">The most advanced laptop. Ever.</h2>
-        <h2 tabindex="-1">Which laptop is right for you?</h2>
-        <table #table tabindex="-1">
-            <tr tabindex="-1">
-                <td tabindex="-1"></td>
-                <th tabindex="-1">NotBook</th>
-                <th tabindex="-1">NotBook Pro</th>
-                <th tabindex="-1">Notbook Air</th>
+    </ul>
+
+    <h1 tabindex="-1" #main>Notbook</h1>
+    <h2 tabindex="-1">The most advanced laptop. Ever.</h2>
+    <h2 tabindex="-1">Which laptop is right for you?</h2>
+    <table #table tabindex="-1">
+        <tr tabindex="-1">
+            <td tabindex="-1"></td>
+            <th tabindex="-1">NotBook</th>
+            <th tabindex="-1">NotBook Pro</th>
+            <th tabindex="-1">Notbook Air</th>
+        </tr>
+        <tr tabindex="-1">
+            <th tabindex="-1">Price</th>
+            <td tabindex="-1">$999</td>
+            <td tabindex="-1">$1299</td>
+            <td tabindex="-1">$749</td>
+        </tr>
+        <tr tabindex="-1">
+            <th tabindex="-1">Storage</th>
+            <td tabindex="-1">2TB</td>
+            <td tabindex="-1">2TB</td>
+            <td tabindex="-1">2TB</td>
+        </tr>
+        <tr tabindex="-1">
+            <th tabindex="-1">RAM</th>
+            <td tabindex="-1">8GB</td>
+            <td tabindex="-1">16GB</td>
+            <td tabindex="-1">16GB</td>
+        </tr>
+        <tr tabindex="-1">
+            <th tabindex="-1">Battery Life</th>
+            <td tabindex="-1">16 hrs</td>
+            <td tabindex="-1">20 hrs</td>
+            <td tabindex="-1">16 hrs</td>
+        </tr>
+    </table>
+
+    <h2 tabindex="-1">Buy Your own NotBook Now</h2>
+
+    <form>
+
+        <label tabindex="-1" for="fname">First name:</label>
+        <input #fname type="text" id="fname" name="fname">
+        <label tabindex="-1" for="lname">Last name:</label>
+        <input #lname type="text" id="lname" name="lname">
+        <label tabindex="-1" for="address">Address:</label>
+        <input #address type="text" id="address" name="address">
+
+        <fieldset name="Choose a model">
+            <!-- <legend tabindex="-1">Choose a model</legend> -->
+            <label tabindex="-1" for="NotBook">NotBook </label>
+            <input #nb type="radio" id="NotBook" name="model" value="NotBook">
+            <label tabindex="-1" for="NotBook Pro">NotBook Pro</label>
+            <input #nbp type="radio" id="NotBook Pro" name="model" value="NotBook Pro">
+            <label tabindex="-1" for="NotBook Air">NotBook Air</label>
+            <input #nba type="radio" id="NotBook Air" name="model" value="NotBook Air">
+        </fieldset>
+
+        <fieldset name="Choose a color">
+            <!-- <legend tabindex="-1">Choose a color</legend> -->
+            <input type="radio" name="color" id="black" value="black">
+            <label tabindex="-1" for="black">
+                Image of NotBook in Midnight Black
+                <img src="assets/product_imgs/black.jpeg" alt=" NotBook in Midnight Black">
+            </label>
+            <input type="radio" name="color" id="silver" value="silver">
+            <label tabindex="-1" for="silver">
+                Image of NotBook in Snow Silver
+                <img src="assets/product_imgs/silver.jpeg" alt=" NotBook in Snow Silver">
+            </label>
+            <input type="radio" name="color" id="pink" value="pink">
+            <label tabindex="-1" for="pink">
+                Image of NotBook in Blush Pink
+                <img src="assets/product_imgs/pink.jpeg" alt=" NotBook in Blush Pink">
+            </label>
+        </fieldset>
+
+        <button #last (click)="navigateToNext()" type="submit">Submit (this will end the screen reader simulation)</button>
+    </form>
+
+    <p tabindex="-1">Footer © 2022 NotBook</p>
+    <br tabindex="0" id="end">
+</div>
+
+<div class="cover">
+    <!-- <div style="margin: 5em; margin-top: 75px display"> -->
+    <div style="padding-right: 5em">
+        <h4>Behind this cover is a website that you can access using your keyboard and a built in screen reader. Using
+            this screen reader try to complete the following task:</h4>
+        <br>
+        <h3><b>Place an order for the type of NotBook that is under $1000 and has at least 16GB or RAM in Snow Silver</b></h3>
+        <br>
+        <p>Submitting the form in the simulation will take you to the next page or you can click <a
+                tab-index="-2" routerLink="/take-away">here</a> to continue.</p>
+    </div>
+    <div style="text-align: center;">
+        <h5>You can operate the website using the following commands<wbr>(based on the NVDA screen reader)</h5>
+        <table>
+            <tr>
+                <th colspan="2">General</th>
             </tr>
-            <tr tabindex="-1">
-                <th tabindex="-1">Price</th>
-                <td tabindex="-1">$999</td>
-                <td tabindex="-1">$1299</td>
-                <td tabindex="-1">$749</td>
+            <tr>
+                <td>Down Arrow</td>
+                <td>go to the next line</td>
             </tr>
-            <tr tabindex="-1">
-                <th tabindex="-1">Storage</th>
-                <td tabindex="-1">2TB</td>
-                <td tabindex="-1">2TB</td>
-                <td tabindex="-1">2TB</td>
+            <tr>
+                <td>Up Arrow</td>
+                <td>go to the previous line</td>
             </tr>
-            <tr tabindex="-1">
-                <th tabindex="-1">RAM</th>
-                <td tabindex="-1">512GB</td>
-                <td tabindex="-1">512GB</td>
-                <td tabindex="-1">256GB</td>
+            <tr>
+                <td>Tab</td>
+                <td>just to the next focusable item (e.g. link, button, inputs)</td>
             </tr>
-            <tr tabindex="-1">
-                <th tabindex="-1">Battery Life</th>
-                <td tabindex="-1">16 hrs</td>
-                <td tabindex="-1">20 hrs</td>
-                <td tabindex="-1">16 hrs</td>
+            <tr>
+                <th colspan="2">Table</th>
+            </tr>
+            <tr>
+                <td> Alt/Option + Right Arrow</td>
+                <td>Cell to the right</td>
+            </tr>
+            <tr>
+                <td> Alt/Option + Left Arrow</td>
+                <td>Cell to the left</td>
+            </tr>
+            <tr>
+                <td> Alt/Option + Up Arrow</td>
+                <td>Cell above</td>
+            </tr>
+            <tr>
+                <td> Alt/Option + Down Arrow</td>
+                <td>Cell below</td>
+            </tr>
+            <tr>
+                <th colspan="2">Forms</th>
+            </tr>
+            <tr>
+                <td>Right Arrow</td>
+                <td>select the next element in the form group</td>
+            </tr>
+            <tr>
+                <td>Left Arrow</td>
+                <td>select the previous element in the form group</td>
+            </tr>
+            <tr>
+                <td>Tab</td>
+                <td>jump out of fieldset to next focusable element</td>
             </tr>
         </table>
+    </div>
 
-        <!-- <h2 tabindex="-1">Buy Now</h2>
-        <form>
-            <label tabindex="-1" for="fname">First name:</label>
-            <input #fname type="text" id="fname" name="fname">
-            <label tabindex="-1" for="lname">Last name:</label>
-            <input #lname type="text" id="lname" name="lname">
-            <label tabindex="-1" for="address">Address:</label>
-            <input #address type="text" id="address" name="address">
-
-            <legend tabindex="-1">Choose a model</legend>
-            <input #nb type="radio" value="NotBook"  name="model">
-            <label tabindex="-1" for="NotBook Pro">NotBook </label>
-            <input #nbp type="radio" value="NotBook Pro" name="model">
-            <label tabindex="-1" for="NotBook Pro">NotBook Pro</label>
-            <input #nba type="radio" value="NotBook Air" name="model">
-            <label tabindex="-1" for="NotBook Air">NotBook Air</label>
-
-            <p tabindex="-1">Choose a color</p>
-            <input type="radio" name="color" value="black">
-            <label tabindex="-1" for="black">
-                <img src="assets/product_imgs/black.jpeg" alt="Click to select NotBook in Midnight Black">
-            </label>
-            <input type="radio" name="color" value="silver">
-            <label tabindex="-1" for="silver">
-                <img src="assets/product_imgs/silver.jpeg" alt="Click to select NotBook in Snow Silver">
-            </label>
-            <input type="radio" name="color" value="pink">
-            <label tabindex="-1" for="pink">
-                <img src="assets/product_imgs/pink.jpeg" alt="Click to select NotBook in Blush Pink">
-            </label>
-            <input #submit type="submit" value="Buy Now">
-        </form> -->
-    <!-- </div> -->
 </div>

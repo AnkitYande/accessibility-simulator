@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-screen-reader',
@@ -10,11 +11,17 @@ export class ScreenReaderComponent implements OnInit {
   @ViewChild('start') startRef!: ElementRef;
   @ViewChild('main') mainRef!: ElementRef;
   @ViewChild('table') tableRef!: ElementRef;
+  @ViewChild('last') lastRef!: ElementRef;
 
-  constructor() { }
+  constructor(private router: Router) { }
+
   ngOnInit(): void { }
   ngAfterViewInit(): void {
     (this.startRef.nativeElement as HTMLElement).focus();
+  }
+
+  navigateToNext() {
+    this.router.navigateByUrl("/take-away")
   }
 
   skipToMain() {
@@ -24,13 +31,12 @@ export class ScreenReaderComponent implements OnInit {
 
   tableIndex = [0, 0];
   inTable: boolean = false;
-  properLabels:boolean = true;
+  properLabels: boolean = true;
 
   @HostListener('document:keyup', ['$event'])
   onKeyPress(e: KeyboardEvent) {
     let currElement = document.activeElement
     let activeElement = null
-
     if (e.altKey && e.key != null) {
       if (this.inTable) {
         if (e.key == 'ArrowDown') {
@@ -39,7 +45,7 @@ export class ScreenReaderComponent implements OnInit {
             return;
           } else {
             this.tableIndex[0]++;
-            this.read(`${this.properLabels && this.tableIndex[1] != 0 ? this.getTableCell(this.tableIndex[0],0).textContent: ""} row ${this.tableIndex[0]}`)
+            this.read(`${this.properLabels && this.tableIndex[1] != 0 ? this.getTableCell(this.tableIndex[0], 0).textContent : ""} row ${this.tableIndex[0]}`)
           }
         } else if (e.key == 'ArrowUp') {
           if (this.tableIndex[0] == 0) {
@@ -47,7 +53,7 @@ export class ScreenReaderComponent implements OnInit {
             return;
           } else {
             this.tableIndex[0]--;
-            this.read(`${this.properLabels && this.tableIndex[1] != 0 ? this.getTableCell(this.tableIndex[0],0).textContent:""} row ${this.tableIndex[0]}`)
+            this.read(`${this.properLabels && this.tableIndex[1] != 0 ? this.getTableCell(this.tableIndex[0], 0).textContent : ""} row ${this.tableIndex[0]}`)
           }
         } else if (e.key == 'ArrowLeft') {
           if (this.tableIndex[1] == 0) {
@@ -55,7 +61,7 @@ export class ScreenReaderComponent implements OnInit {
             return;
           } else {
             this.tableIndex[1]--;
-            this.read(`${this.properLabels && this.tableIndex[0] != 0 ? this.getTableCell(0,this.tableIndex[1]).textContent:""} column ${this.tableIndex[1]},`)
+            this.read(`${this.properLabels && this.tableIndex[0] != 0 ? this.getTableCell(0, this.tableIndex[1]).textContent : ""} column ${this.tableIndex[1]},`)
           }
         } else if (e.key == 'ArrowRight') {
           if (this.tableIndex[1] == 3) {
@@ -63,20 +69,48 @@ export class ScreenReaderComponent implements OnInit {
             return;
           } else {
             this.tableIndex[1]++;
-            this.read(`${this.properLabels && this.tableIndex[0] != 0 ? this.getTableCell(0,this.tableIndex[1]).textContent:""} column ${this.tableIndex[1]},`)
+            this.read(`${this.properLabels && this.tableIndex[0] != 0 ? this.getTableCell(0, this.tableIndex[1]).textContent : ""} column ${this.tableIndex[1]},`)
           }
         }
-        activeElement = this.getTableCell(this.tableIndex[0],this.tableIndex[1])
-        console.log(this.tableIndex, activeElement.textContent)
-        console.log("*", this.tableRef.nativeElement.children)
+        activeElement = this.getTableCell(this.tableIndex[0], this.tableIndex[1])
       } else {
         this.read("Not in a table")
       }
+
     } else if (currElement != null) {
       if (e.key == 'Tab') {
+        if (currElement.id == "end") {
+          e.preventDefault();
+          e.stopPropagation();
+          this.read("Preventing tabbing out of simulation")
+          this.lastRef.nativeElement.focus()
+          return;
+        }
+        if (currElement.id == "start") {
+          e.preventDefault();
+          e.stopPropagation();
+          this.read("Preventing tabbing out of simulation")
+          this.startRef.nativeElement.focus()
+          return;
+        }
         activeElement = document.activeElement;
+        if (activeElement!.tagName == "INPUT") {
+          if (activeElement!.parentElement!.tagName == "FIELDSET") {
+            if (this.properLabels) this.read("Button Group for" + activeElement!.parentElement!.name)
+          }
+          this.read(`${(activeElement as HTMLInputElement).labels?.item(0).outerText} ${(activeElement as HTMLInputElement).type} input`, false)
+        }
       }
-      else if (e.key == 'ArrowDown') {
+      else if (currElement.tagName == "INPUT") {
+        if (e.key == 'ArrowLeft' || e.key == 'ArrowRight') {
+          activeElement = document.activeElement;
+          this.read(`${(activeElement as HTMLInputElement).labels?.item(0).outerText} ${(activeElement as HTMLInputElement).type} input`)
+        } else {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }
+      if (e.key == 'ArrowDown') {
         currElement = this.exitIfNeeded(currElement, true);
         activeElement = currElement!.nextElementSibling;
         activeElement = this.enterIfNeeded(activeElement, false);
@@ -95,14 +129,23 @@ export class ScreenReaderComponent implements OnInit {
 
   }
 
-  getTableCell(x:number,y:number){
+  getTableCell(x: number, y: number) {
     return (this.tableRef.nativeElement as Element).children[x].children[y]
   }
 
   enterIfNeeded(activeElement: Element | null, enterFromEnd: boolean) {
     if (activeElement) {
       if (activeElement.tagName == "UL") {
-        this.read(`unordered list with ${activeElement.children.length} elements`);
+        if (this.properLabels) {
+          this.read(`${this.properLabels ? "navigation" : "unordered list"} with ${activeElement.children.length} elements`);
+        }
+        if (!enterFromEnd) {
+          return activeElement.children[0];
+        } else {
+          return activeElement.children[activeElement.children.length - 1];
+        }
+      }
+      if (activeElement.tagName == "FIELDSET") {
         if (!enterFromEnd) {
           return activeElement.children[0];
         } else {
@@ -110,7 +153,9 @@ export class ScreenReaderComponent implements OnInit {
         }
       }
       if (activeElement.tagName == "FORM") {
-        this.read(`Form to buy a NotBook`);
+        if (this.properLabels) {
+          this.read(`Form to buy a NotBook`);
+        }
         if (!enterFromEnd) {
           return activeElement.children[0];
         } else {
@@ -132,16 +177,20 @@ export class ScreenReaderComponent implements OnInit {
       else if (activeElement.tagName == "TR") {
         if (!enterFromEnd) {
           this.tableIndex[1] = 0
-          console.log("a", this.tableIndex)
           return activeElement.children[0];
         } else {
           this.tableIndex[1] = 3
-          console.log("b", this.tableIndex)
           return activeElement.children[activeElement.children.length - 1];
         }
       }
       else if (activeElement.tagName == "BUTTON") {
         this.read(`Button`);
+      }
+      else if (activeElement.tagName == "LEGEND") {
+        if (this.properLabels) {
+          this.read(activeElement.textContent as string)
+        }
+        activeElement = activeElement.nextElementSibling
       }
     }
     return activeElement;
@@ -150,7 +199,7 @@ export class ScreenReaderComponent implements OnInit {
   exitIfNeeded(currElement: Element, goingForward: boolean) {
     if ((goingForward && currElement.nextElementSibling == null) || (!goingForward && currElement.previousElementSibling == null)) {
       if (currElement.tagName == "LI") {
-        this.read(`Out of list`);
+        this.properLabels ? this.read(`Out of Navigation`) : this.read(`Out of list`);
         return currElement.parentElement
       }
       else if (currElement.tagName == "TD" || currElement.tagName == "TH") {
@@ -162,12 +211,19 @@ export class ScreenReaderComponent implements OnInit {
             this.tableIndex[0]--
           }
           this.tableIndex[1] = 0
-          console.log("b", this.tableIndex)
           return currElement.parentElement
         }
         this.read(`Out of table`);
         this.inTable = false;
         return currElement.parentElement!.parentElement
+      }
+      else if (currElement.tagName == "INPUT" || currElement.tagName == "LABEL" || currElement.tagName == "BUTTON") {
+        let el = currElement.parentElement
+        if (el!.tagName == "FIELDSET")
+          this.read(`Out of fieldset`);
+        else
+          this.read(`Out of form group`);
+        return el
       }
     }
 
@@ -177,7 +233,6 @@ export class ScreenReaderComponent implements OnInit {
       } else {
         this.tableIndex[1]--
       }
-      console.log("c", this.tableIndex)
     }
     return currElement
   }

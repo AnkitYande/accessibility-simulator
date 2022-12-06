@@ -1,19 +1,60 @@
 table {
   font-family: arial, sans-serif;
-  width: 80%;
+  // width: 0%;
 }
 
 td,
 th {
   border: 1px solid #dddddd;
-  text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #444;
+td{
+  text-align: left;
+  background-color: #222
 }
 
-img{
+th{
+  text-align: center;
+}
+
+// tr:nth-child(even) {
+//   background-color: #444;
+// }
+
+img {
   width: 100px;
+}
+
+input {
+  margin: 0.5rem;
+}
+
+fieldset,
+form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cover {
+  z-index: 8;
+  padding: 5em;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  display:grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ScreenReaderWrapper{
+  overflow: hidden;
+}
+
+a{
+  color: #81c6fe
 }
