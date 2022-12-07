@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-screen-reader',
@@ -15,7 +16,7 @@ export class ScreenReaderComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {window.scrollTo(0, 0)}
   ngAfterViewInit(): void {
     (this.startRef.nativeElement as HTMLElement).focus();
   }
@@ -29,6 +30,7 @@ export class ScreenReaderComponent implements OnInit {
     this.read("Page Header. NotBook");
   }
 
+  faExternalLink = faExternalLink;
   tableIndex = [0, 0];
   inTable: boolean = false;
   properLabels: boolean = true;

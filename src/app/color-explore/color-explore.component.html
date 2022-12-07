@@ -1,7 +1,7 @@
 <div style="margin: 2em">
 
     <h2 style="font-weight: bold">Try it out!</h2>
-    <p>Upload a image and view it with color blindness filters applied</p>
+    <p>Upload a image and view what it would look like to people with different levels of color sensitivity</p>
 
     <div class="img-filter-shell">
         <div class="filter-container">
@@ -87,8 +87,7 @@
     <br><br><br><br>
     <h2 style="font-weight: bold">Color Contrast</h2>
     <p>Create a color combination and see if it is WCAG compliant</p>
-    <br>
-
+    <br><br>
     <div class="contrast-shell">
         <div class="a1">
             <div>
@@ -114,8 +113,16 @@
                     et dolore magna.
                 </h2>
                 <p [style.color]="textColor">
-                    Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque. Adipiscing vitae proin sagittis nisl. Quis risus sed vulputate odio. Sit amet luctus venenatis lectus magna fringilla urna. Eget mauris pharetra et ultrices. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Faucibus in ornare quam viverra orci sagittis eu. Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Nibh venenatis cras sed felis eget velit. Placerat vestibulum lectus mauris ultrices. Lectus sit amet est placerat.
-                    Sed risus ultricies tristique nulla aliquet. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Sit amet mauris commodo quis imperdiet. Nibh venenatis cras sed felis. Quisque id diam vel quam elementum. Vivamus arcu felis bibendum ut tristique. Venenatis a condimentum vitae sapien. 
+                    Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque. Adipiscing vitae proin
+                    sagittis nisl. Quis risus sed vulputate odio. Sit amet luctus venenatis lectus magna fringilla urna.
+                    Eget mauris pharetra et ultrices. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam
+                    nulla facilisi. Faucibus in ornare quam viverra orci sagittis eu. Nulla facilisi morbi tempus
+                    iaculis urna id volutpat lacus laoreet. Nibh venenatis cras sed felis eget velit. Placerat
+                    vestibulum lectus mauris ultrices. Lectus sit amet est placerat.
+                    Sed risus ultricies tristique nulla aliquet. Massa tincidunt nunc pulvinar sapien et ligula
+                    ullamcorper malesuada proin. Sit amet mauris commodo quis imperdiet. Nibh venenatis cras sed felis.
+                    Quisque id diam vel quam elementum. Vivamus arcu felis bibendum ut tristique. Venenatis a
+                    condimentum vitae sapien.
                 </p>
             </div>
         </div>
@@ -140,8 +147,19 @@
         </div>
 
     </div>
-
-    <div data-scroll data-scroll-class="scroll-class" data-scroll-repeat="true" class="stagger-in" style="display:grid; justify-items:center">
+    <br>
+    <div style="display:grid; justify-items:center;">
+        <p style="width: 80%; text-align: center; font-size: 1.07em ">
+            The WCAG is a set of standards to make content more accessible to people with disabilities.
+            Contrast ratios are measured on a scle of 1:1 to 21:1 (worst to best).
+            They are a usful measure of how different two colors are in terms of luminance instead of hue, as this is more percivable to people with color deficiencies.
+            WCAG level AA complience requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for lforarge text.
+            WCAG Level AAA complience requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
+            For more information, you can check out <a href="https://www.nvaccess.org" target="_blank">WCAG Criterion 1.4.3<sup><fa-icon [icon]="faExternalLink"></fa-icon></sup></a>
+        </p>
+    </div>
+    <div data-scroll data-scroll-class="scroll-class" data-scroll-repeat="true" class="stagger-in"
+        style="display:grid; justify-items:center">
         <h3><a routerLink="/reader-intro" class="hover-underline-animation">Click here to continue ></a></h3>
     </div>
     <div style="height:10vh"></div>

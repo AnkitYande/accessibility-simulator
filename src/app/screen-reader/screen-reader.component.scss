@@ -6,7 +6,9 @@ table {
 td,
 th {
   border: 1px solid #dddddd;
-  padding: 8px;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 td{
@@ -49,12 +51,19 @@ form {
   justify-content: center;
   align-items: center;
   grid-template-columns: 1fr 1fr;
+  overflow: hidden;
 }
 
 .ScreenReaderWrapper{
+  position: absolute;
+  height: 90vh;
   overflow: hidden;
 }
 
 a{
   color: #81c6fe
+}
+
+li{
+  margin-top: 0.5rem;
 }

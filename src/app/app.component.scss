@@ -1,6 +1,6 @@
 .navbar {
     margin-top: 0;
-    padding-top:0;
+    padding:0;
     width: 100%;
     z-index: 100;
 }
@@ -24,9 +24,7 @@
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    font-size: 1.2rem;
-    padding-left: 1em;
-    padding-right: 1em;
+    font-size: 1.2rem;;
 }
 
 .navbar .nav-container a:hover {
@@ -92,19 +90,38 @@
     padding-top: 75px;
     padding-bottom: 15px;
     height: 100vh;
-    // width: 100%;
     transform: translate(-150%);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin-left: -40px;
-    padding-left: 50px;
+    padding-left: calc(100px);
+    padding-right: 3em;
     transition: transform 0.5s ease-in-out;
-    text-align: center;
 }
 
-.navbar .menu-items a {
-    font-size: 1.3rem;
+.menu-items a {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.menu-items a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+
+.menu-items a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .nav-container input[type="checkbox"]:checked~.menu-items {

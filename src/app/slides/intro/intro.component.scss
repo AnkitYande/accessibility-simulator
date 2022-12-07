@@ -1,1 +1,59 @@
 @import "../scroll.scss";
+
+.mark {
+    background: #ffff00;
+    color: #1f1f1f;
+}
+
+.stagger-in {
+    opacity: 0;
+    transform: translate(50%, 0);
+    transition: opacity 3s ease-in-out, transform 1s ease-in-out;
+}
+
+.stagger-in h3 {
+    font-size: 3.5vw;
+    font-weight: bold;
+    text-align: left;
+    line-height: 5.5vw;
+}
+
+.scroll-class {
+    opacity: 1;
+    transform: translate(0%, 0)
+}
+
+.slide-spacer {
+    height: 60vh
+}
+
+.scroll-down {
+    width: 40px; 
+    height: 60px;
+    border: 2px solid #fff;
+    border-radius: 50px; 
+    position: relative;
+}
+.scroll-down:before {
+    content: ""; 
+    position: absolute;
+    width: 10px; 
+    height: 10px;
+    background: #fff; 
+    margin: auto;
+    left: 0; 
+    right: 0;
+    top: 0px; 
+    border-radius: 50%;
+    animation: animate 1.5s linear infinite; 
+}
+
+@keyframes animate {
+    0% {
+        opacity: 1; top: 10px;
+    }
+    100% {
+        opacity: 0; top: 50px;
+        transform: scale(0.8);
+    }
+}

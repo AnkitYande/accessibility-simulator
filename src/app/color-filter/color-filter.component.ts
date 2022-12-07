@@ -26,14 +26,14 @@ export class ColorFilterComponent implements OnInit {
   @ViewChild('canvas') canvasRef!: ElementRef;
   imgSrc = "assets/map_imgs/low1.png"
   applyFilter: boolean = false;
-  headderText: string = "Select the Severity of the highlighted region";
+  headderText: string = "Select the severity of the highlighted region";
   overlayText: string = ""
   filterOpacity:String = "brightness(100%)";
   index = 0;
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { window.scrollTo(0, 0) }
 
   onImageLoad(): void {
     console.log("img load fired")

@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { faEye, faEyeSlash, faCheck, faX } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash, faCheck, faX, faExternalLink } from '@fortawesome/free-solid-svg-icons';
 
 var blinder = require('color-blind');
 
@@ -15,6 +15,7 @@ export class ColorExploreComponent implements OnInit {
   faEyeSlash = faEyeSlash;
   faCheck = faCheck;
   faX = faX;
+  faExternalLink = faExternalLink;
 
   @ViewChild('image') imageRef!: ElementRef;
   @ViewChild('canvas') canvasRef!: ElementRef;
@@ -33,7 +34,7 @@ export class ColorExploreComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { window.scrollTo(0, 0) }
 
   ngAfterViewInit() {
     this.imgForm.setValue({ filterChoice: "protanomaly" })

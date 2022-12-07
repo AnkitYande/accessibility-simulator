@@ -1,39 +1,11 @@
 .shell {
-    background: #1f1f1f;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     color: #fff;
-    text-align: center;
-    padding: 10em
-}
-
-.mark {
-    background: #ffff00;
-    color: #1f1f1f;
-}
-
-.stagger-in {
-    opacity: 0;
-    transform: translate(50%, 0);
-    transition: opacity 3s ease-in-out, transform 1s ease-in-out;
-}
-
-.stagger-in h3 {
-    font-size: 3.5vw;
-    font-weight: bold;
-    text-align: left;
-    line-height: 5.5vw;
-}
-
-.slide-spacer {
-    height: 60vh
-}
-
-.scroll-class {
-    opacity: 1;
-    transform: translate(0%, 0)
+    padding-left: 10em;
+    padding-right: 10em
 }
 
 a {
@@ -59,28 +31,4 @@ a:after {
 a:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-}
-
-.scroll-down::before {
-    animation: bounce 1.5s ease infinite;
-    margin-top: 2em;
-    margin-bottom: 30vh;
-    position: absolute;
-    color: #fff;
-    content: '╲╱';
-    font-size: 2rem;
-    height: 4rem;
-    left: 50%;
-    letter-spacing: -1px;
-    line-height: 4rem;
-    margin-left: -3rem;
-    opacity: 0.8;
-    text-align: center;
-    width: 6rem;
-}
-
-@keyframes bounce {
-    50% {
-        transform: translateY(-50%);
-    }
 }

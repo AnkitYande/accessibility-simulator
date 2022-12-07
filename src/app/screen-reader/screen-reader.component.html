@@ -93,7 +93,8 @@
             </label>
         </fieldset>
 
-        <button #last (click)="navigateToNext()" type="submit">Submit (this will end the screen reader simulation)</button>
+        <button #last (click)="navigateToNext()" type="submit">Submit (this will end the screen reader
+            simulation)</button>
     </form>
 
     <p tabindex="-1">Footer © 2022 NotBook</p>
@@ -106,28 +107,44 @@
         <h4>Behind this cover is a website that you can access using your keyboard and a built in screen reader. Using
             this screen reader try to complete the following task:</h4>
         <br>
-        <h3><b>Place an order for the type of NotBook that is under $1000 and has at least 16GB or RAM in Snow Silver</b></h3>
+        <ol>
+            <li>Use the Down Arrow and Tab keys to get started</li>
+            <li>Navigate through the website until you reach the table</li>
+            <li>Once you reach the table, use the table commands to try to find which laptop is under $1000 and has at
+                least 16GB of memory</li>
+            <li>Navigate out of the table and down to the form</li>
+            <li>Fill out the form using the Form controls. Select chose the model that meets the criteria in bullet
+                three in snow silver</li>
+            <li>Press the "Submit" button to finish the simulation</li>
+        </ol>
         <br>
-        <p>Submitting the form in the simulation will take you to the next page or you can click <a
-                tab-index="-2" routerLink="/take-away">here</a> to continue.</p>
+        <p>Submitting the form in the simulation will take you to the next page, or you can click <a tab-index="-2"
+                routerLink="/take-away">here</a> to skip.</p>
     </div>
-    <div style="text-align: center;">
-        <h5>You can operate the website using the following commands<wbr>(based on the NVDA screen reader)</h5>
+    <div style="display: grid; justify-content:center; text-align:center; font-size:0.9rem">
+        <h6>You can operate the website using the following commands <br> (these are based on the NVDA screen reader
+            <sup><a href="https://www.nvaccess.org" target="_blank">
+                    <fa-icon [icon]="faExternalLink"></fa-icon>
+                </a></sup>)</h6>
         <table>
             <tr>
                 <th colspan="2">General</th>
             </tr>
             <tr>
                 <td>Down Arrow</td>
-                <td>go to the next line</td>
+                <td>Go to the next line</td>
             </tr>
             <tr>
                 <td>Up Arrow</td>
-                <td>go to the previous line</td>
+                <td>Go to the previous line</td>
             </tr>
             <tr>
                 <td>Tab</td>
-                <td>just to the next focusable item (e.g. link, button, inputs)</td>
+                <td>Jump to the next focusable item (e.g. link, button, inputs)</td>
+            </tr>
+            <tr>
+                <td>Enter</td>
+                <td>Select a link or button</td>
             </tr>
             <tr>
                 <th colspan="2">Table</th>
@@ -153,15 +170,15 @@
             </tr>
             <tr>
                 <td>Right Arrow</td>
-                <td>select the next element in the form group</td>
+                <td>Select the next element in the form group</td>
             </tr>
             <tr>
                 <td>Left Arrow</td>
-                <td>select the previous element in the form group</td>
+                <td>Select the previous element in the form group</td>
             </tr>
             <tr>
                 <td>Tab</td>
-                <td>jump out of fieldset to next focusable element</td>
+                <td>Jump out of fieldset to next focusable element</td>
             </tr>
         </table>
     </div>

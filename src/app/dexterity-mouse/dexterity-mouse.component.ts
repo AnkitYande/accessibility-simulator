@@ -32,7 +32,7 @@ export class DexterityMouseComponent implements OnInit {
   checkedJS = false;
 
   constructor(private router: Router) { }
-  ngOnInit(): void { }
+  ngOnInit(): void { window.scrollTo(0, 0)}
 
   mouseMove(e: MouseEvent) {
     this.mouseX = e.clientX + this.rand(-40, 40);

@@ -15,6 +15,7 @@ export class IntroComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    window.scrollTo(0, 0)
     setTimeout(() =>
       this.scroll = new LocomotiveScroll({
         el: document.querySelector('[shell]') as HTMLElement,
