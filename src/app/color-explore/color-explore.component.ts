@@ -61,16 +61,9 @@ export class ColorExploreComponent implements OnInit {
   }
 
   imgLoad() {
-    const image = this.imageRef.nativeElement as HTMLImageElement;
-    const canvas = this.canvasRef.nativeElement as HTMLCanvasElement;
-    canvas.width = image.naturalWidth;
-    canvas.height = image.naturalHeight;
-    let ctx = canvas.getContext("2d", { willReadFrequently: true })
-    this.onFormSubmit()
-    // if (ctx) {
-    //   ctx.fillStyle = "black";
-    //   ctx.fillRect(0, 0, canvas.width, canvas.height);
-    // }
+    setTimeout(() => {
+      this.onFormSubmit()
+    }, 500)
   }
 
   toggleFilter() {
@@ -166,7 +159,7 @@ export class ColorExploreComponent implements OnInit {
     let a = this.hexToRgb(this.textColor)
     let b = this.hexToRgb(this.backgroundColor)
     let val = this.calcContrastRatio(a, b)
-    this.contrastRatio= val;
+    this.contrastRatio = val;
     this.contrastRatioString = val.toFixed(2);
   }
 }

@@ -16,8 +16,8 @@ export class ColorFilterComponent implements OnInit {
     ["assets/map_imgs/low3.png", "low", true, "Now lets look at the same map with higher contrast between the four colors"],
     ["assets/map_imgs/high1.png", "high", false, "Now lets see what this map looks like with deuteranopia color blindness"],
     ["assets/map_imgs/high2.png", "low", true, "Lets do another example using this map!"],
-    ["assets/map_imgs/high3.png", "medium", true,  "Now lets look at a map presents the same information using only one color. However, it uses even greater contrast making it easy for both users with and without color blindness"],
-    ["assets/map_imgs/red1.png", "medium", false,"Now lets see what this map looks like with deuteranopia color blindness"],
+    ["assets/map_imgs/high3.png", "medium", true, "Now lets look at a map presents the same information using only one color. However, it uses even greater contrast making it easy for both users with and without color blindness"],
+    ["assets/map_imgs/red1.png", "medium", false, "Now lets see what this map looks like with deuteranopia color blindness"],
     ["assets/map_imgs/red2.png", "severe", true, "Lets do another example using this map!"],
     ["assets/map_imgs/red3.png", "low", true, "Great Job!"]
   ];
@@ -28,20 +28,26 @@ export class ColorFilterComponent implements OnInit {
   applyFilter: boolean = false;
   headderText: string = "Select the severity of the highlighted region";
   overlayText: string = ""
-  filterOpacity:String = "brightness(100%)";
+  filterOpacity: String = "brightness(100%)";
   index = 0;
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void { window.scrollTo(0, 0) }
+  ngOnInit(): void { 
+    window.scrollTo(0, 0)
+    this.overlayText = "loading..."
+  }
 
   onImageLoad(): void {
-    console.log("img load fired")
-    const image = this.imageRef.nativeElement as HTMLImageElement;
-    const canvas = this.canvasRef.nativeElement as HTMLCanvasElement;
-    canvas.width = image.naturalWidth;
-    canvas.height = image.naturalHeight;
-    this.draw(image, canvas);
+    setTimeout(() => {
+      console.log("img load fired")
+      const image = this.imageRef.nativeElement as HTMLImageElement;
+      const canvas = this.canvasRef.nativeElement as HTMLCanvasElement;
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      this.draw(image, canvas);
+    }
+    , 500)
   }
 
   draw = (img: HTMLImageElement, canvas: HTMLCanvasElement) => {
@@ -104,7 +110,7 @@ export class ColorFilterComponent implements OnInit {
     } else {
       setTimeout(() =>
         this.router.navigateByUrl("/color-explore")
-      , 1500)
+        , 1500)
     }
   }
 
